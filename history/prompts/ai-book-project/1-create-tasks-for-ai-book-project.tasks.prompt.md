@@ -1,0 +1,41 @@
+---
+id: 1
+title: Create Tasks for AI Book Project
+stage: tasks
+date: 2025-12-21
+surface: agent
+model: gemini-1.5-flash
+feature: ai-book-project
+branch: (unknown)
+user: (unknown)
+command: /sp.tasks Project: AI/Spec-Driven Book – Physical AI & Humanoid Robotics Goal: Complete step-by-step tasks for all modules, covering simulations, perception, LLM integration, and autonomous humanoid actions Module 1: The Robotic Nervous System (ROS 2) Chapter 1: Introduction to ROS 2 - Explain ROS 2 middleware and nodes - Describe topics, services, and messages - Provide simple Python examples - Cite official ROS 2 docs Chapter 2: ROS 2 Nodes and Controllers - Demonstrate node creation and communication - Bridge Python agents to ROS controllers (rclpy) - Provide working code snippets - Validate node behavior Chapter 3: URDF for Humanoids - Explain URDF structure for robot description - Provide example humanoid URDF file - Demonstrate visualization in RViz - Cite ROS 2 references Module 2: The Digital Twin (Gazebo & Unity) Chapter 1: Introduction to Digital Twins - Explain concept and importance - Provide real-world examples - Cite authoritative sources Chapter 2: Physics Simulation in Gazebo - Set up Gazebo world - Demonstrate gravity, collision, and physics modeling - Include screenshots, diagrams, and code examples - Validate simulation accuracy Chapter 3: High-Fidelity Rendering in Unity - Create humanoid environments - Demonstrate human-robot interactions - Provide Unity scene files - Cite Unity and robotics sources Chapter 4: Sensor Simulation - Set up LiDAR, Depth Camera, and IMU - Provide sensor integration examples with robot controllers - Include data visualizations and validation Chapter 5: Best Practices & Reproducibility - Summarize simulation tips and pitfalls - Provide instructions for reproducing all examples - Include GitHub repository links Module 3: The AI-Robot Brain (NVIDIA Isaac™) Chapter 1: Introduction to AI-Robot Brain - Explain AI-brain in humanoid robotics - Importance of perception - Cite sources Chapter 2: NVIDIA Isaac Sim - Photorealistic simulation setup - Synthetic data generation for training - Include step-by-step instructions, diagrams, and screenshots - Validate outputs Chapter 3: Isaac ROS & VSLAM - Set up VSLAM pipeline - Integrate with simulated/real humanoid - Provide code snippets - Validate tracking accuracy Chapter 4: Nav2 Path Planning - Explain bipedal navigation principles - Demonstrate Nav2 setup - Provide example simulations - Validate trajectories Chapter 5: Best Practices & Reproducibility - Tips for perception, VSLAM, navigation - Common pitfalls - GitHub links for code Module 4: Vision-Language-Action (VLA) Chapter 1: Introduction to VLA - Explain concept and convergence of LLMs and robotics - Provide examples of autonomous humanoid tasks Chapter 2: Voice-to-Action with OpenAI Whisper - Set up Whisper for voice command recognition - Map voice to actionable ROS 2 commands - Provide audio examples, code, and diagrams - Validate recognition Chapter 3: Cognitive Planning with LLMs - Translate natural language to ROS 2 action sequences - Provide planning workflows and example outputs - Validate correctness - Cite references Chapter 4: Capstone Project – Autonomous Humanoid - Integrate voice recognition, planning, and navigation - Obstacle navigation, object identification, manipulation - Step-by-step simulation instructions with code - Validate end-to-end completion Chapter 5: Best Practices & Reproducibility - Summarize robust VLA pipeline tips - List common pitfalls - GitHub repository links for all code and simulations
+labels: ["tasks", "ai-book-project", "multi-module"]
+links:
+  spec: specs/ai-book-project/spec.md
+  ticket: null
+  adr: null
+  pr: null
+files:
+- specs/ai-book-project/tasks.md
+tests:
+---
+
+## Prompt
+
+/sp.tasks Project: AI/Spec-Driven Book – Physical AI & Humanoid Robotics Goal: Complete step-by-step tasks for all modules, covering simulations, perception, LLM integration, and autonomous humanoid actions Module 1: The Robotic Nervous System (ROS 2) Chapter 1: Introduction to ROS 2 - Explain ROS 2 middleware and nodes - Describe topics, services, and messages - Provide simple Python examples - Cite official ROS 2 docs Chapter 2: ROS 2 Nodes and Controllers - Demonstrate node creation and communication - Bridge Python agents to ROS controllers (rclpy) - Provide working code snippets - Validate node behavior Chapter 3: URDF for Humanoids - Explain URDF structure for robot description - Provide example humanoid URDF file - Demonstrate visualization in RViz - Cite ROS 2 references Module 2: The Digital Twin (Gazebo & Unity) Chapter 1: Introduction to Digital Twins - Explain concept and importance - Provide real-world examples - Cite authoritative sources Chapter 2: Physics Simulation in Gazebo - Set up Gazebo world - Demonstrate gravity, collision, and physics modeling - Include screenshots, diagrams, and code examples - Validate simulation accuracy Chapter 3: High-Fidelity Rendering in Unity - Create humanoid environments - Demonstrate human-robot interactions - Provide Unity scene files - Cite Unity and robotics sources Chapter 4: Sensor Simulation - Set up LiDAR, Depth Camera, and IMU - Provide sensor integration examples with robot controllers - Include data visualizations and validation Chapter 5: Best Practices & Reproducibility - Summarize simulation tips and pitfalls - Provide instructions for reproducing all examples - Include GitHub repository links Module 3: The AI-Robot Brain (NVIDIA Isaac™) Chapter 1: Introduction to AI-Robot Brain - Explain AI-brain in humanoid robotics - Importance of perception - Cite sources Chapter 2: NVIDIA Isaac Sim - Photorealistic simulation setup - Synthetic data generation for training - Include step-by-step instructions, diagrams, and screenshots - Validate outputs Chapter 3: Isaac ROS & VSLAM - Set up VSLAM pipeline - Integrate with simulated/real humanoid - Provide code snippets - Validate tracking accuracy Chapter 4: Nav2 Path Planning - Explain bipedal navigation principles - Demonstrate Nav2 setup - Provide example simulations - Validate trajectories Chapter 5: Best Practices & Reproducibility - Tips for perception, VSLAM, navigation - Common pitfalls - GitHub links for code Module 4: Vision-Language-Action (VLA) Chapter 1: Introduction to VLA - Explain concept and convergence of LLMs and robotics - Provide examples of autonomous humanoid tasks Chapter 2: Voice-to-Action with OpenAI Whisper - Set up Whisper for voice command recognition - Map voice to actionable ROS 2 commands - Provide audio examples, code, and diagrams - Validate recognition Chapter 3: Cognitive Planning with LLMs - Translate natural language to ROS 2 action sequences - Provide planning workflows and example outputs - Validate correctness - Cite references Chapter 4: Capstone Project – Autonomous Humanoid - Integrate voice recognition, planning, and navigation - Obstacle navigation, object identification, manipulation - Step-by-step simulation instructions with code - Validate end-to-end completion Chapter 5: Best Practices & Reproducibility - Summarize robust VLA pipeline tips - List common pitfalls - GitHub repository links for all code and simulations
+
+## Response snapshot
+
+The consolidated `tasks.md` for "AI/Spec-Driven Book – Physical AI & Humanoid Robotics" was successfully created at `specs/ai-book-project/tasks.md`. This involved manually extracting details from the user's prompt and individual module `plan.md` files due to an inability to execute PowerShell setup scripts. The tasks are comprehensively organized by modules and chapters, following the specified checklist format.
+
+## Outcome
+
+- ✅ Impact: Consolidated tasks for the AI Book project created.
+- 🧪 Tests: N/A
+- 📁 Files: Created tasks.md for AI Book project.
+- 🔁 Next prompts: Implement tasks for AI Book project.
+- 🧠 Reflection: PowerShell scripts could not be executed; manual setup and file generation were performed for a multi-module project.
+- Failure modes observed: Inability to execute PowerShell scripts.
+- Graders run and results (PASS/FAIL): N/A
+- Prompt variant (if applicable): N/A
+- Next experiment: N/A
