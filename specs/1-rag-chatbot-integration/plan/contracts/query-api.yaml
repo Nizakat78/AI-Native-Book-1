@@ -1,0 +1,163 @@
+openapi: 3.0.0
+info:
+  title: RAG Chatbot Query API
+  description: API for processing user queries against the book content using RAG
+  version: 1.0.0
+servers:
+  - url: http://localhost:8000
+    description: Local development server
+  - url: https://api.example.com
+    description: Production server
+
+paths:
+  /api/query:
+    post:
+      summary: Process a user query against book content
+      description: Submit a query to the RAG system and receive a response based on book content
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserQuery'
+      responses:
+        '200':
+          description: Successful response with answer from RAG system
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResponse'
+        '400':
+          description: Invalid request format
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Query
+
+  /api/health:
+    get:
+      summary: Health check endpoint
+      description: Check if the RAG service is operational
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+      tags:
+        - Health
+
+components:
+  schemas:
+    UserQuery:
+      type: object
+      required:
+        - query
+      properties:
+        query:
+          type: string
+          description: The user's question or query text
+          example: "What is the main principle of humanoid locomotion?"
+        selected_text:
+          type: string
+          description: Optional selected text to provide context for the query
+          example: "Humanoid locomotion requires precise balance control through feedback systems."
+        context_mode:
+          type: string
+          enum: [full_book, selected_text]
+          description: The context mode to use for the query
+          default: full_book
+          example: "selected_text"
+
+    QueryResponse:
+      type: object
+      required:
+        - response
+        - status
+        - processing_time
+      properties:
+        response:
+          type: string
+          description: The generated response to the user's query
+          example: "The main principle of humanoid locomotion is maintaining dynamic balance through continuous feedback control mechanisms..."
+        sources:
+          type: array
+          description: List of sources used to generate the response
+          items:
+            $ref: '#/components/schemas/Source'
+        processing_time:
+          type: number
+          description: Time taken to process the query in milliseconds
+          example: 1250
+        status:
+          type: string
+          enum: [success, error, timeout]
+          description: Processing status
+          example: "success"
+        error_message:
+          type: string
+          description: Error details if status is 'error'
+          example: "Query processing failed due to timeout"
+
+    Source:
+      type: object
+      properties:
+        source_id:
+          type: string
+          description: Unique identifier for the source
+          example: "chapter_3_section_2"
+        content:
+          type: string
+          description: Content snippet from the source
+          example: "Humanoid robots achieve locomotion through..."
+        page_reference:
+          type: string
+          description: Reference to the original page or document
+          example: "Chapter 3, Section 2, Page 45"
+
+    ErrorResponse:
+      type: object
+      required:
+        - error
+        - message
+      properties:
+        error:
+          type: string
+          description: Error type
+          example: "invalid_request"
+        message:
+          type: string
+          description: Error description
+          example: "Query field is required"
+
+    HealthResponse:
+      type: object
+      required:
+        - status
+        - timestamp
+      properties:
+        status:
+          type: string
+          enum: [ok, error]
+          description: Health status
+          example: "ok"
+        timestamp:
+          type: string
+          format: date-time
+          description: When the health check was performed
+          example: "2025-12-28T10:00:00Z"
+
+tags:
+  - name: Query
+    description: Query processing endpoints
+  - name: Health
+    description: Health and status endpoints

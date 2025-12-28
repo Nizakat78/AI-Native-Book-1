@@ -1,7 +1,13 @@
 <!--
-Version change: 1.2.0 -> 1.2.1
+
+
+
+Version change: 1.1.0 -> 1.2.0
 Modified principles:
-- None
+- Accuracy: Specified explicit sources (official docs, peer-reviewed papers).
+- Clarity: Defined target audience (CS/robotics students).
+- Reproducibility: Explicitly mentioned code, simulations, and experiments.
+- Integration-first: Clarified as book + RAG chatbot.
 Added sections:
 - None
 Removed sections:
@@ -61,4 +67,5 @@ The book content and the embedded RAG chatbot must function as a cohesive unit. 
 - All pull requests and reviews must verify compliance with this Constitution.
 - Any deviation from stated principles or constraints must be explicitly justified and approved.
 
-**Version**: 1.2.1 | **Ratified**: TODO(RATIFICATION_DATE): Please provide the original ratification date. | **Last Amended**: 2025-12-21
+**Version**: 1.2.0 | **Ratified**: TODO(RATIFICATION_DATE): Please provide the original ratification date. | **Last Amended**: 2025-12-20
+
