@@ -14,7 +14,7 @@ class Config:
     Application configuration class that holds all settings.
     """
     # OpenAI Configuration
-    openai_api_key: str = os.getenv("OPENAI_API_KEY", "")
+    openai_api_key: str = os.getenv("OPENROUTER_API_KEY", "")
 
     # Qdrant Configuration
     qdrant_url: str = os.getenv("QDRANT_URL", "")
@@ -38,7 +38,7 @@ class Config:
         Validate required configuration after initialization.
         """
         if not self.openai_api_key:
-            raise ValueError("OPENAI_API_KEY environment variable is required")
+            raise ValueError("OPENROUTER_API_KEY environment variable is required")
         if not self.qdrant_url:
             raise ValueError("QDRANT_URL environment variable is required")
         if not self.qdrant_api_key:
