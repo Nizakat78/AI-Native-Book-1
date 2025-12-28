@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Chatbot.css';
+import ReactMarkdown from 'react-markdown';
 
 const Chatbot = ({ apiUrl = 'http://localhost:8000/api/query', initialContextMode = 'full_book' }) => {
   const [messages, setMessages] = useState([]);
@@ -262,7 +263,7 @@ const Chatbot = ({ apiUrl = 'http://localhost:8000/api/query', initialContextMod
                   aria-label={message.sender === 'user' ? 'Your message' : 'Assistant response'}
                 >
                   <div className="message-content">
-                    <p>{message.text}</p>
+                    <ReactMarkdown>{message.text}</ReactMarkdown>
                     {message.sources && message.sources.length > 0 && (
                       <div className="message-sources">
                         <details>
