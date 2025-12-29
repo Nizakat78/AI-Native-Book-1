@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Chatbot.css';
 import ReactMarkdown from 'react-markdown';
 
-const Chatbot = ({ apiUrl = 'http://localhost:8000/api/query', initialContextMode = 'full_book' }) => {
+const Chatbot = ({ apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000/api/query', initialContextMode = 'full_book' }) => {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
